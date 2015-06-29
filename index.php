@@ -139,7 +139,14 @@ function create_user($user_id, $password) {
 }
 
 dispatch_get('/', function() {
-  return html('index.html.php');
+  $user = current_user();
+  if (empty($user)) {
+    return html('index.html.php');
+  } else {
+    set('repositories', get_repositories($user['user_id']));
+    set('user', $user);
+    return html('mypage.html.php');
+  }
 });
 
 dispatch_get('/register', function() {
