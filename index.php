@@ -15,11 +15,15 @@ function configure() {
   }
 
   # create DB connection and save it
-  $db = new PDO(
-    "mysql:host=$host;port=$port;dbname=$dbname",
-    $username,
-    $password
-  );
+  try{
+    $db = new PDO(
+      "mysql:host=$host;port=$port;dbname=$dbname",
+      $username,
+      $password
+    );
+  } catch(PDOException $e) {
+    halt('Connection faild: '.$e->getMessage());
+  }
   option('db_connection', $db);
 }
 
