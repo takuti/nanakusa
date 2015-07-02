@@ -12,7 +12,11 @@ if (isset($flash['success'])) {
 <?php
 }
 ?>
-
+<form action="<?php echo url_for('/create_repository'); ?>" method="POST">
+  <input type="text" class="form-control" name="repo_name" placeholder="New repository name" required>
+  <button class="btn btn-primary btn-block" type="submit">Create</button>
+</form>
+<br />
 <table class="table table-bordered table-striped">
   <thead>
   <tr>
@@ -34,7 +38,3 @@ if (isset($flash['success'])) {
   </tbody>
 </table>
 
-<form action="<?php echo url_for('/create_repository'); ?>" method="POST">
-  <input type="text" class="form-control" name="repo_name" placeholder="New repository name" required>
-  <button class="btn btn-primary btn-block" type="submit">Create</button>
-</form>
