@@ -29,7 +29,7 @@ if (isset($flash['success'])) {
       $u = $repository['user_id'];
       $r = $repository['repo_name'];
       $git = "git@157.82.3.165:".$u."/".$r.".git";
-      $url = "http://".$u.".".$r."p62.exp.ci.i.u-tokyo.ac.jp";
+      $url = "http://".$u.".".$r.".p62.exp.ci.i.u-tokyo.ac.jp";
       echo "<tr><td>".$r."</td><td>".$git."</td><td><a href=\"".$url."\">".$url."</a></td></tr>";
     }
     ?>
