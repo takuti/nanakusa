@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="h1"><a href="<?php echo url_for('/'); ?>">Nanakusa Network</a></div>
+      <a href="<?php echo url_for('/'); ?>"><img  class="img-responsive" src="assets/img/nanakusa.jpg" alt="nanakusa" /></a>
       <?php echo $content ?>
     </div>
     <script src="http://code.jquery.com/jquery.js"></script>

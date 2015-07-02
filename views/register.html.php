@@ -8,7 +8,6 @@ if (isset($flash['error'])) {
 ?>
 
 <form class="form-signin" action="<?php echo url_for('/create_user'); ?>" method="POST">
-  <h2 class="form-signin-heading">Register</h2>
   <label class="sr-only">User ID</label>
   <input type="text" class="form-control" name="user_id" placeholder="Your user id" required autofocus>
   <label for="inputPassword" class="sr-only">Password</label>

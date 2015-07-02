@@ -11,7 +11,6 @@ if (isset($flash['success'])) {
 }
 ?>
 <form class="form-signin" action="<?php echo url_for('/login'); ?>" method="POST">
-  <h2 class="form-signin-heading">Please sign in</h2>
   <label class="sr-only">User ID</label>
   <input type="text" class="form-control" name="user_id" placeholder="user id" required autofocus>
   <label for="inputPassword" class="sr-only">Password</label>
@@ -19,4 +18,4 @@ if (isset($flash['success'])) {
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>
 
-<a href="<?php echo url_for('/register'); ?>" >Sign up</a>
+<div class="text-center"><a href="<?php echo url_for('/register'); ?>" >Sign up</a></div>

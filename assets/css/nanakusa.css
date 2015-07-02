@@ -4,6 +4,10 @@ body {
 	color: #333;
 }
 
+.container {
+  max-width: 800px;
+}
+
 .h1 > a {
 	text-decoration: none;
 	color: #333;
@@ -12,6 +16,7 @@ body {
 .form-signin {
   max-width: 330px;
   padding: 15px;
+  margin: 0 auto;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -41,4 +46,8 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+form {
+  width: 100%;
 }
