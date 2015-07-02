@@ -83,6 +83,11 @@ function get_repositories($user_id) {
 }
 
 function create_repository($user_id, $repo_name) {
+  # validate repository name
+  if (!preg_match('/^[a-zA-Z]+$/', $repo_name)) {
+    return ['status' => 'error', 'message' => 'Alphabet only'];
+  }
+
   $db = option('db_connection');
 
   # check whether same repository exists
@@ -111,6 +116,11 @@ function create_user($user_id, $password) {
   # user id and password must be specified
   if (empty($user_id) || empty($password)) {
     return ['status' => 'error', 'message' => 'User ID and/or password are missing'];
+  }
+
+  # validate user id
+  if (!preg_match('/^[a-zA-Z]+$/', $user_id)) {
+    return ['status' => 'error', 'message' => 'User id only allows alphabet'];
   }
 
   $db = option('db_connection');
