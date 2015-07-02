@@ -20,14 +20,17 @@ if (isset($flash['success'])) {
   <tr>
     <th>Repository Name</th>
     <th>Git</th>
+    <th>URL</th>
   </tr>
   </thead>
   <tbody>
     <?php
     foreach (get('repositories') as $repository) {
+      $u = $repository['user_id'];
       $r = $repository['repo_name'];
-      $n = $repository['user_id'];
-      echo "<tr><td>".$r."</td><td>git@157.82.3.165:".$n."/".$r.".git</td></tr>";
+      $git = "git@157.82.3.165:".$u."/".$r.".git";
+      $url = "http://".$u.".".$r."p62.exp.ci.i.u-tokyo.ac.jp";
+      echo "<tr><td>".$r."</td><td>".$git."</td><td><a href=\"".$url."\">".$url."</a></td></tr>";
     }
     ?>
   </tbody>
