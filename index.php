@@ -105,13 +105,15 @@ function create_repository($user_id, $repo_name) {
     return ['status' => 'error', 'message' => "Repository `$repo_name` already exists"];
   }
 
+  # TODO: write atomic controlled shellscript execution here!!!
+  $shellscript_path = dirname( __FILE__ ).'/../../';
+  exec($shellscript_path."remote.sh $shellscript_path $user_id $repo_name 2>&1", $output);
+
   # create repository
   $stmt = $db->prepare('INSERT INTO repositories (user_id, repo_name) VALUES (:user_id, :repo_name)');
   $stmt->bindValue(':user_id', $user_id);
   $stmt->bindValue(':repo_name', $repo_name);
   $stmt->execute();
-
-  # TODO: write atomic controlled shellscript execution here!!!
 
   return ['status' => 'success', 'message' => "Repository `$repo_name` has been successfully created"];
 }
