@@ -1,5 +1,6 @@
 <h2><?php echo get('user')['user_id'] ?> <a class="btn btn-info btn-xs" href="<?php echo url_for('/logout'); ?>" role="button">Logout</a></h2>
 
+<div id="loading"></div>
 <?php
 $flash = flash_now();
 if (isset($flash['success'])) {
@@ -12,9 +13,9 @@ if (isset($flash['success'])) {
 <?php
 }
 ?>
-<form action="<?php echo url_for('/create_repository'); ?>" method="POST">
+<form action="<?php echo url_for('/create_repository'); ?>" method="POST" novalidate>
   <input type="text" class="form-control" name="repo_name" placeholder="New repository name" required>
-  <button class="btn btn-primary btn-block" type="submit">Create</button>
+  <button class="loading btn btn-primary btn-block" type="submit" onclick="activityIndicator();">Create</button>
 </form>
 <br />
 <table class="table table-bordered table-striped">
@@ -37,3 +38,13 @@ if (isset($flash['success'])) {
     ?>
   </tbody>
 </table>
+
+<script src="assets/js/spin.min.js"></script>
+<script>
+function activityIndicator() {
+  var target = document.getElementById('loading');
+  var spinner = new Spinner().spin();
+  target.style.display = 'block';
+  spinner.spin(target);
+}
+</script>

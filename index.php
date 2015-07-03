@@ -89,7 +89,7 @@ function get_repositories($user_id) {
 function create_repository($user_id, $repo_name) {
   # validate repository name
   if (!preg_match('/^[a-zA-Z]+$/', $repo_name)) {
-    return ['status' => 'error', 'message' => 'Alphabet only'];
+    return ['status' => 'error', 'message' => 'alphabet only / empty is not allowed'];
   }
 
   $db = option('db_connection');
